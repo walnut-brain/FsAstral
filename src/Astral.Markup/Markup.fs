@@ -13,5 +13,19 @@ type ContractAttribute(name : string) =
     inherit Attribute()
     member __.Name = name
 
-//type ServiceAttribute(version: string, string name)
+[<AttributeUsage(AttributeTargets.Class, Inherited = false)>]
+type ServiceAttribute(name : string) =
+    inherit Attribute()
+    member __.Name = name
+
+[<AttributeUsage(AttributeTargets.Class, Inherited = false)>]
+type VersionAttribute(version : string) =
+    inherit Attribute()
+    member __.Version = Version.Parse(version)
+    
+[<AttributeUsage(AttributeTargets.Class, Inherited = false)>]
+type EndpointAttribute(name : string) =
+    inherit Attribute()
+    member __.Name = name
+
 
